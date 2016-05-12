@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="www.frebsite.nl" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<title>App</title>
+        <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+		<link type="text/css" rel="stylesheet" href="css/demo.css" />
+		<link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+		<style type="text/css">
+
+		*{
+			    font-family: 'Gloria Hallelujah', cursive !important;
+    font-size: 20px !important;
+    text-shadow: 0px 0px 1px #fff !important;
+    color: rgba(0, 0, 0, 0.86);
+		}
+			.Title
+			{
+				display: none;
+			}
+
+			#menu
+			{
+				background: #222;
+			}
+			h4
+			{
+				margin: 0 0 10px 0;
+			}
+			.thumb
+			{
+				display: block;
+				width: 30%;
+				margin: 0 2% 2% 0;
+				float: left;
+			}
+			.thumb img
+			{
+				float: left;
+				width: 100%;
+				height: auto;
+			}
+			.thumb-xs
+			{
+				vertical-align: middle;
+				display: inline-block;
+				margin: -5px 10px -5px 0;
+			}
+			.clear
+			{
+				clear: both;
+				display: block;
+				padding: 5px 0;
+				margin-bottom: 20px;
+			}
+			.large
+			{
+				width: 100%;
+				height: auto;
+			}
+			.mm-panel[id^="panel-"]:not(#panel-categories):not(#app)
+			{
+				padding-right: 0;
+			}
+		</style>
+		<style type="text/css">
+			#menu {
+				min-width: none;
+				max-width: none;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mmenu.all.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#menu")
+					.mmenu({
+		offCanvas	: false,
+		extensions	: ["theme-dark"],
+		navbar		: {
+			title		: "Colombo Game"
+		},
+		navbars		: true,
+		searchfield	: {
+			add			: false,
+			addTo		: "#panel-categories",
+			placeholder	: "Search world"
+		}
+					}).on( 'click',
+						'a[href^="#/"]',
+						function() {
+							alert( "Pregunta." );
+							return false;
+						}
+					);
+			});
+		</script>
+	</head>
+	<body>
+		<nav id="menu" style="background:rgb(12, 150, 12);background-image: url('img/cabeza.png');
+    background-color: #cccccc;
+    background-size:100% 100%;">
+		<div id="app" style="background: rgb(0, 128, 0); background-image: url('img/fondo.jpg');
+    background-color: #cccccc;background-repeat:no-repeat;
+    background-size:100% 100%;">
+			<br />
+			<p><strong>Hello...</strong><br />
+				<br />
+
+				<center><img class="thumb-xs" src="img/inicio.gif" style="width:60%"/></center>
+					<br /><br />
+
+
+				My name is caroline ... Please enter your name, and press see worlds ...</p>
+				<input type="text" placeholder="Your name...">
+
+			<ul>
+				<li><span>See worlds</span>
+					<div id="panel-categories" style="background: rgb(0, 128, 0); background-image: url('img/fondo.jpg');
+    background-color: #cccccc;background-repeat:no-repeat;
+    background-size:100% 100%;">
+						<p>Open one of the categories in the list below to view the questions.</p>
+						<ul>
+							<li>
+								<span>
+									<img class="thumb-xs" src="img/relacion.gif"  style="width:30%"/>
+									Relationships
+								</span>
+								<em class="Counter">8</em>
+								<div id="panel-animals" style="background: rgb(0, 128, 0); background-image: url('img/fondo.jpg');
+    background-color: #cccccc;background-repeat:no-repeat;
+    background-size:100% 100%;">
+									<a href="#/" class="thumb" style="width:30%"><img src="img/m11.gif"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m12.gif" style="height:100%;width:100%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m13.gif" style="height:100%;width:100%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m14.png" style="height:100%;width:80%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m15.gif" style="height:100%;width:80%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m16.gif" style="height:100%;width:80%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m17.gif" style="height:100%;width:100%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m18.gif" style="height:100%;width:100%"/></a>
+
+									<!-- navbar info -->
+									<h3 class="Title">Relationships</h3>
+								</div>
+							</li>
+							<li>
+								<span>
+									<img class="thumb-xs" src="img/que.gif"  style="width:30%"/>
+									What if?
+								</span>
+								<em class="Counter">8</em>
+								<div id="panel-city" style="background: rgb(0, 128, 0); background-image: url('img/fondo.jpg');
+    background-color: #cccccc;background-repeat:no-repeat;
+    background-size:100% 100%;">
+
+							<a href="#/" class="thumb" style="width:30%"><img src="img/m21.gif"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m22.gif" style="height:100%;width:50%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m23.gif" style="height:100%;width:50%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m24.gif" style="height:100%;width:50%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m25.gif" style="height:100%;width:50%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m26.gif" style="height:100%;width:100%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m27.gif" style="height:100%;width:50%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m28.gif" style="height:100%;width:50%"/></a>
+
+									<!-- navbar info -->
+									<h3 class="Title">What if?</h3>
+								</div>
+							</li>
+							<li>
+								<span>
+									<img class="thumb-xs" src="img/tech.gif" style="width:25%" />
+									Tech savvy
+								</span>
+								<em class="Counter">8</em>
+								<div id="panel-fashion" style="background: rgb(0, 128, 0); background-image: url('img/fondo.jpg');
+    background-color: #cccccc;background-repeat:no-repeat;
+    background-size:100% 100%;">
+									<a href="#/" class="thumb" style="width:30%"><img src="img/m31.gif"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m32.gif" style="height:100%;width:70%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m33.gif" style="height:100%;width:70%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m34.gif" style="height:100%;width:70%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m35.gif" style="height:100%;width:70%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m36.gif" style="height:100%;width:70%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m37.gif" style="height:100%;width:70%"/></a>
+									<a href="#/" class="thumb" style="width:30%;height:20%"><img src="img/m38.gif" style="height:100%;width:70%"/></a>
+
+									<!-- navbar info -->
+									<h3 class="Title">Tech savvy</h3>
+								</div>
+							</li>
+
+						</ul>
+		
+						<!-- navbar info -->
+						<h3 class="Title">World</h3>
+					</div>
+				</li>					
+			</ul>
+		</div>
+		</nav>
+	</body>
+</html>
