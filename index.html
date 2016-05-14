@@ -15,22 +15,40 @@
 		<link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
 		<script>
 			//console.log(preguntas);
+
+function msg(objeto,mensaje,tipo){
 			
+			if(tipo) 
+			{
+			       $(objeto).addClass("alert-success").fadeIn(500).html(mensaje).delay(2000).fadeOut(1000);
+			       $(objeto).removeClass("alert-danger");
+			}else
+			{
+			       $(objeto).addClass("alert-danger").fadeIn(500).html(mensaje).delay(2000).fadeOut(1000);
+			       $(objeto).removeClass("alert-success");
+			}	
+}
+
 function Shuffle(o) {
 	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
 	return o;
 };
 
 			$(document).ready(function(){
+				console.log (preguntas);
 
 				var idnivel;
 
    				 $('#registro').on('click',function(){
-					console.log("click");
+					//console.log("click");
 					var nom = document.getElementById("nombre").value;
-					console.log(nom);
+					//console.log(nom);
 
-						$.ajax({
+					if (nom != "") {
+
+						console.log(nom);
+
+					$.ajax({
 						 url:'http://colombo-game.sigtics.org/AppPhp/registrar.php',
 			 			type: 'POST',
 			 			dataType: "json",
@@ -43,6 +61,14 @@ function Shuffle(o) {
      
 			    			}
 						});	
+
+					}else{
+						msg($("#mensaje_sistema"),'Please enter a valid name',false);
+						console.log("eee");
+						location.reload();
+					}
+
+
 	        })
 
    				  $('.mundos').on('click',function(){
@@ -61,7 +87,19 @@ function Shuffle(o) {
 
 						 	idnivel = data;
 
-						 	 $('.cont').css('background-image', 'url(img/mundo'+data+'.jpg)');
+						 	if (idnivel > 24 )
+						 	{
+						 		$('.cont').css('background-image', 'url(img/finish.jpg)');
+						 		$('.jugar').hide();
+						 	}
+
+						 	else
+						 	{
+						 		$('.cont').css('background-image', 'url(img/mundo'+data+'.jpg)');
+						 		$('.jugar').show();
+						 	}
+
+						 	 
      
 			    			}
 						});	
@@ -151,11 +189,23 @@ $("#recibe").html(t);
 						 		$('.cont').css('background-image', 'url(img/mundo'+data+'.jpg)');
 						 		$("#cerrar").trigger("click");
 						 		idnivel = data;
+						 		$('.jugar').show();
 						 	}
 						 	else
-						 	{
-						 		alert("Respuesta incorrecta, rectifique");
-						 	}
+						 		if(data > 24 )
+						 		{
+						 			$('.cont').css('background-image', 'url(img/finish.jpg)');
+						 			$("#cerrar").trigger("click");
+						 			idnivel = data;
+						 			$('.jugar').hide();
+
+						 		}
+						 		else
+						 			{
+						 				msg($("#mensaje_sistema"),'Wrong answer',false);
+						 				$('.jugar').show();
+						 				//alert("Respuesta incorrecta, rectifique");
+						 			}
 
 
 						 	//idnivel = data;
@@ -264,7 +314,7 @@ $("#recibe").html(t);
 					}).on( 'click',
 						'a[href^="#/"]',
 						function() {
-							alert( "Pregunta." );
+							//alert( "Pregunta." );
 							return false;
 						}
 					);
@@ -286,7 +336,7 @@ $("#recibe").html(t);
 					<br /><br />
 
 
-				My name is caroline ... Please enter your name, and press see worlds ...</p>
+				We are caroline, Adan and Jack ... Please write your name, and press see worlds ...</p>
 				<input type="text" id="nombre" name="nombre" placeholder="Your name...">
 
 			<ul>
@@ -310,11 +360,11 @@ $("#recibe").html(t);
     padding-right: 10px;
     position: fixed;
     width: 35%;
-    bottom: 0px;
+    bottom: 10px;
     background-image: url('img/boton.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    right: 0;
+    right: 5px;
     text-align: center;"  data-toggle="modal" data-target="#myModal" class="jugar">Play</div>
 									<!-- navbar info -->
 									<h3 class="Title">Relationships</h3>
@@ -334,11 +384,11 @@ $("#recibe").html(t);
     padding-right: 10px;
     position: fixed;
     width: 35%;
-    bottom: 0px;
+    bottom: 10px;
     background-image: url('img/boton.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    right: 0;
+    right: 5px;
     text-align: center;"  data-toggle="modal" data-target="#myModal" class="jugar">Play</div>
 
 									<!-- navbar info -->
@@ -360,12 +410,12 @@ $("#recibe").html(t);
     padding-right: 10px;
     position: fixed;
     width: 35%;
-    bottom: 0px;
+    bottom: 10px;
     background-image: url('img/boton.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    right: 0;
-    text-align: center;"  data-toggle="modal" data-target="#myModal" class="jugar"  >Play</div>
+    right: 5px;
+    text-align: center;"  data-toggle="modal" data-target="#myModal" class="jugar"   >Play</div>
 								
 
 									<!-- navbar info -->
@@ -456,7 +506,8 @@ input.radio:focus ~ label:before {
 		<!-- Modal -->
 <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
-<<form method="get" accept-charset="utf-8" id="enviar_respuesta">
+<div id="mensaje_sistema" class="alert"></div>   
+<form method="get" accept-charset="utf-8" id="enviar_respuesta">
 
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="background-color: rgba(205, 133, 55, 0.82);">
